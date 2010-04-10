@@ -5,7 +5,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
-  <title>Elige bien tus nombres - javascript, los pequeños detalles</title>
+  <title>Debemos ser configurables - javascript, los pequeños detalles</title>
   <link rel="stylesheet" href="stylesheets/presentacion.css" type="text/css" media="screen" charset="utf-8"/>
   <link rel="stylesheet" href="stylesheets/presentacion-handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" charset="utf-8"/>
   <!--[if lte IE 6]>
@@ -22,29 +22,59 @@
     <div class="wrapper">
       
 
-<img src="images/0008.png" class="sreenshot" alt="Elegir nombres"/>
+<img src="images/0011.png" class="sreenshot" alt="Ser configurable"/>
 
 <div class="article">
-  <h1>Elige bien tus nombres</h1>
+  <h1>Debemos ser configurables</h1>
   
-  <p>Otra cosita obvia, pero que está muy bien tenerla en cuenta.</p>
+  <p>Es genial tratar de que todos los elementos que estén sujetos a cambiar dentro de nuestra función se mantengan como parámetros configurables: nombres de clases, literales, colores...</p>
   
-  <p>A la hora de elegir nombres para tus variables y funciones hay que tratar de que sean cortitos y representativos.</p>
+  <p>Si no usamos ningún framework podríamos usar una función que nos permitiese combinar valores de dos objetos distintos, por ejemplo:</p>
   
-  <p>Algunos ejemplos de nombres no demasiado afortunados</p>
+  <pre><code>
+    var merge = function (o, ob) {
+      var z;
+      for (z in ob) {
+        if (ob.hasOwnProperty(z)) {
+          o[z] = ob[z];
+        }
+      }
+      return o;
+    }
+  </code></pre>
   
-  <ul>
-    <li>x1</li>
-    <li>querty</li>
-    <li>countElementsEveryTimeYouClick</li>
-    <li><strong>countTwenty</strong></li>
-  </ul>
+  <p>De esta manera podríamos preparar nuestra clase:</p>
   
-  <p>Fijándonos en este último caso. Deberíamos de evitar que el nombre de una función describiese un valor. Si mañana en lugar de contar hasta 20 tuviésemos de contar hasta 30 deberíamos de cambiar el nombre de la función y sus llamadas, hacer una nueva o bien dejarla como está y comentar (nooooooo!!!)</p>
+  <pre><code>
+myClass = function (options) {
+  if(!(this instanceof myClass)) return new myClass(options);
+  this.options = merge({
+    option1: "I'm the option one",
+    option2: "I'm the option two"
+  }, options || {});
+  
+  ...
+  
+}
+  </code></pre>
+  
+  <p>Así a la hora de instanciarla podríamos usar los valores por defecto o personalizarlos si nos interesa.</p>
+  
+  <pre><code>
+var obj = new myClass();
+  => option1: "I'm the option one"
+  => option2: "I'm the option two"
+
+var obj = new myClass({option1: "oh!", extra: "oh!"});
+  => option1: "oh!"
+  => option2: "I'm the option two"
+  => extra:   "oh!"
+
+  </code></pre>
   
   <p>
-    <a href="005-comenta.html" class="button">« anterior</a>
-    <a href="007-anade-funcionalidad-no-contenido.html" class="button">siguiente »</a>
+    <a href="008-bucles.html" class="button">« anterior</a>
+    <a href="010-repaint-reflow.html" class="button">siguiente »</a>
   </p>
 
 </div>

@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+  <title>Bucles - javascript, los pequeños detalles</title>
+  <link rel="stylesheet" href="stylesheets/presentacion.css" type="text/css" media="screen" charset="utf-8"/>
+  <link rel="stylesheet" href="stylesheets/presentacion-handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" charset="utf-8"/>
+  <!--[if lte IE 6]>
+    <link rel="stylesheet" href="stylesheets/presentacion-ie.css" type="text/css" media="screen" charset="utf-8"/>
+  <![endif]-->
+  
+</head>
+<body>
+  <div id="header" class="wrapper">
+    <a href="index.html" class="logo"><strong>Javascript, los pequeños detalles</strong></a>
+    <a href="toc.html">índice de contenidos</a>
+  </div><!-- #header -->
+  <div id="content">
+    <div class="wrapper">
+      
+
+<img src="images/0010.png" class="sreenshot" alt="Bucles!"/>
+
+<div class="article">
+  <h1>Bucles</h1>
+  
+  <p>No os voy a descubrir nada nuevo sobre bucles y lenguajes de programación. Ya sabemos que no es recomendable anidar bucles :)</p>
+  
+  <p>No es importante el tipo de bucle que usemos, sino la cantidad de iteraciones que realicemos y la cantidad de trabajo que realice cada iteración. Como norma general habría que tratar de no modificar el DOM en cada iteración, pero la realidad es que a veces no es posible.</p>
+  
+  <p>Además vamos a hacer un pequeño ejercicio desde el punto de vista del (micro)rendimiento, sin tener en cuenta el trabajo que se haga en cada bucle. Vamos a analizar este cachito de código.</p>
+  
+  <pre><code>
+    for(var i=0; i &lt; myArray.length; i++) {
+      doSomething(myArray[i]);
+    }
+    
+    var j=0;
+    do {
+      doSomething(myArray[j++]);
+    } while (j &lt; myArray.length);
+    
+    var k=0;
+    while(k &lt; myArray.length) {
+      doSomething(myArray[k++]);
+    }
+  </code></pre>
+  
+  <p>Una de las cosillas que podríamos hacer aquí es almacenar el tamaño del array en una variable en lugar de consultárselo al objeto cada vez. Esto quedaría más o menos así:</p>
+  
+  <pre><code>
+    var <strong>len</strong> = myArray.length
+    
+    for(var i=0; <strong>i &lt; len</strong>; i++) {
+      doSomething(myArray[i]);
+    }
+    
+    var j=0;
+    do {
+      doSomething(myArray[j++]);
+    } while (<strong>j &lt; len</strong>);
+    
+    var k=0;
+    while(<strong>k &lt; len</strong>) {
+      doSomething(myArray[k++]);
+    }
+  </code></pre>
+  
+  <p>Vamos a ponernos un poquito más tiquismiquis con esto. Resulta que <em>i &lt; len</em> en realidad son dos evaluaciones: <em>i &lt; len</em> y <em>i &lt; len == true</em>. Cambiando un poquito la anatomía del bucle podríamos dejar esas dos evaluaciones en 1 sola :)</p>
+  
+  <pre><code>
+    var len = myArray.length
+    
+    for(var i=len; <strong>i--</strong>) {
+      doSomething(myArray[i]);
+    }
+    
+    var j=len-1;
+    do {
+      doSomething(myArray[j]);
+    } while (<strong>j--</strong>);
+    
+    var k=len;
+    while(<strong>k--</strong>) {
+      doSomething(myArray[k]);
+    }
+  </code></pre>
+  
+  
+  <p>
+    <a href="007-anade-funcionalidad-no-contenido.html" class="button">« anterior</a>
+    <a href="009-permite-configurar-tus-funciones.html" class="button">siguiente »</a>
+  </p>
+
+</div>
+
+    </div><!-- .wrapper -->
+  </div><!-- #content -->
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-262914-12']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+    })();
+
+  </script>
+</body>
+</html>

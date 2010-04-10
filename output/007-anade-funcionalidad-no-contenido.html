@@ -5,7 +5,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
-  <title>A New Page - javascript, los pequeños detalles</title>
+  <title>Añade funcionalidad, no contenido - javascript, los pequeños detalles</title>
   <link rel="stylesheet" href="stylesheets/presentacion.css" type="text/css" media="screen" charset="utf-8"/>
   <link rel="stylesheet" href="stylesheets/presentacion-handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" charset="utf-8"/>
   <!--[if lte IE 6]>
@@ -20,18 +20,22 @@
   </div><!-- #header -->
   <div id="content">
     <div class="wrapper">
-      <% content_for :header do %><% end %>
+      
 
 <img src="images/0009.png" class="sreenshot" alt="Funcionalidad, no contenido"/>
 
 <div class="article">
   <h1>Añade funcionalidad, no contenido</h1>
   
-  <p></p>
+  <p>Tu javascript debería de añadir únicamente funcionalidad a tu html. Si tus funciones están añadiendo toneladas de html al documento tal vez sea momento de replantearlo.</p>
+  
+  <p>Si las estructuras que se inyectan tienen un poquito de miga se pueden convertir en un problema a la hora de mantenerlas o de hacerlas evolucionar. Además añadir elementos al DOM provocará reflows y repaints (ya veremos un poquito más adelante) y eso es caro en términos de rendimiento.</p>
+  
+  <p>Si no hay más remedio que añadir ese contenido y tiene que estar disponible cuando dispongamos de javascript una solución podría ser cargarlo vía ajax.</p>
   
   <p>
-    <a href="005-comenta.html" class="button">« anterior</a>
-    <a href="007-anade-funcionalidad-no-contenido.html" class="button">siguiente »</a>
+    <a href="006-elegir-nombres.html" class="button">« anterior</a>
+    <a href="008-bucles.html" class="button">siguiente »</a>
   </p>
 
 </div>

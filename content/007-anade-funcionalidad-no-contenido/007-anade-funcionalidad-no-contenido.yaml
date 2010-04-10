@@ -1,4 +1,5 @@
 # Built-in
 
 # Custom 
-title: A New Page
+title: "Añade funcionalidad, no contenido"
+filters_pre: erb
