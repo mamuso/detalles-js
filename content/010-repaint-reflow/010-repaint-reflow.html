@@ -5,10 +5,46 @@
 <div class="article">
   <h1>Repaint y reflow</h1>
   
-  <p></p>
+  <p>Pues... <a href="http://dev.opera.com/articles/view/efficient-javascript/?page=3#reflow">según opera</a> repaint y reflow están en la lista de sospechosos habituales cuando hablamos de pérdidas de eficiencia de un navegador. <a href="http://www.mozilla.org/newlayout/doc/reflow.html">Desde mozilla</a> también nos comentan algo a respecto.</p>
+  
+  <p>Podríamos definir <strong>repaint</strong>, también conocido como redraw, como lo que pasa cuando cambias una propiedad de un elemento (generalmente de estilo) pero que no produce variaciones en el layout.</p>
+  
+  <p><strong>Reflow</strong> es básicamente lo mismo pero que sí cambia propiedades del layout y obliga a otros elementos a tener que recolocarse.</p>
+  
+  <p>Los repaints y reflows se pueden producir por muchos motivos, entre otros:</p>
+  
+  <ul>
+    <li>cambiar el tipo fuente</li>
+    <li>añadir/eliminar hojas de estilo</li>
+    <li>cambiar el tamaño de la ventana</li>
+    <li>calcular offsetWidth / offsetHeight</li>
+    <li>redimensionar la ventana</li>
+    <li>manipular el DOM</li>
+    <li>manipular las clases de un elemento</li>
+  </ul>
+  
+  <p>Desde el punto de vista de nuestro javascript hay ciertas cosas que podemos (tratar de) evitar para que esto no se produzca</p>
+  
+  <ul>
+    <li>No añadir/eliminar elementos al DOM</li>
+    <li>Si no hay más remedio intentar hacerlo en los nodos más profundos del árbol</li>
+    <li>Evita las expresiones en la CSS (oe)</li>
+    <li>Agrupa los cambios de estilos y siempre que sea posible aplícalos vía css</li>
+  </ul>
+  
+  <p>El ejemplo más claro lo tenemos en el último punto. Al variar los atributos de estilo de un elemento vía javascript, al ir aplicándose de forma secuencial la cosa sería más o menos así:</p>
+  
+  <p><img src="images/repaint.png" alt="Repaint"/></p>
+  
+  <p>Una de las posibles soluciones pasa por delegar todos esos cambios de estilo en la CSS y con javascript aplicar la clase al elemento</p>
+  
+  <p><img src="images/repaint_2.png" alt="Repaint"/></p>
+  
+  <p>Para tener más datos sobre estos tipos de pérdidas de eficiencia podríamos usar <a href="http://code.google.com/webtoolkit/speedtracer/">SpeedTracer</a>, un plugin para Chrome.</p>
+  
   <p>
-    <a href="008-bucles.html" class="button">« anterior</a>
-    <a href="010-repaint-reflow.html" class="button">siguiente »</a>
+    <a href="009-permite-configurar-tus-funciones.html" class="button">« anterior</a>
+    <a href="011-testea.html" class="button">siguiente »</a>
   </p>
 
 </div>
