@@ -5,7 +5,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
-  <title>Conoce tus herramientas - javascript, los pequeños detalles</title>
+  <title>A New Page - javascript, los pequeños detalles</title>
   <link rel="stylesheet" href="stylesheets/presentacion.css" type="text/css" media="screen" charset="utf-8"/>
   <link rel="stylesheet" href="stylesheets/presentacion-handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" charset="utf-8"/>
   <!--[if lte IE 6]>
@@ -20,42 +20,18 @@
   </div><!-- #header -->
   <div id="content">
     <div class="wrapper">
-      
+      <% content_for :header do %><% end %>
 
-<img src="images/0006.png" class="sreenshot" alt="Conoce tus herramientas"/>
+<img src="images/0009.png" class="sreenshot" alt="Funcionalidad, no contenido"/>
 
 <div class="article">
-  <h1>Conoce tus herramientas</h1>
+  <h1>Añade funcionalidad, no contenido</h1>
   
-  <p>Es importante conocer el lenguaje con el que trabajas, y si se trata de un framework conocer todas las posibilidades que nos ofrece para intentar exprimirlo al máximo.</p>
-  
-  <p>Un ejemplo/anécdota básico de sintaxis (con jQuery) extraído de la vida real.</p>
-  
-  <p>Queremos hacer una tablita con pijama usando jQuery, para que quede más o menos así</p>
-  
-  <p><img src="images/tabla_pijama.png" width="499" height="175" alt="Tabla Pijama"/></p>
-  
-  <p>Para ello lo lo que había era una función como esta:</p>
-  
-  <pre><code>
-$("table tbody tr").each(function(i){
-  if(i%2 == 0) {
-    $(this).css("background", "#F4F7FB");
-  }
-});
-  </code></pre>
-  
-  <p>Bueno... cumple su función. Tenemos que asumir que siempre hay más de una manera de hacer las cosas. Conocer un poquito más a fondo (no mucho) la API de jquery nos permitiría hacer esto un poquito más compacta.</p>
-  
-  <pre><code>
-$("table tbody tr:even").addClass("even");
-  </code></pre>
-  
-  <p>Por una parte seleccionamos menos elementos sobre los que iterar, y por otra cambiamos el color de fondo añadiendo una clase y dejando la responsabilidad de los atributos de estilo a la CSS.</p>
+  <p></p>
   
   <p>
-    <a href="003-frameworks.html" class="button">« anterior</a>
-    <a href="005-comenta.html" class="button">siguiente »</a>
+    <a href="005-comenta.html" class="button">« anterior</a>
+    <a href="007-anade-funcionalidad-no-contenido.html" class="button">siguiente »</a>
   </p>
 
 </div>

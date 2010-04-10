@@ -5,7 +5,31 @@
 <div class="article">
   <h1>Conoce tus herramientas</h1>
   
-  <p>Tanto si eliges un framework como si no preocúpate de conocer el lenguaje o la API correspondiente para saber con qué posibilidades cuentas .</p>
+  <p>Es importante conocer el lenguaje con el que trabajas, y si se trata de un framework conocer todas las posibilidades que nos ofrece para intentar exprimirlo al máximo.</p>
+  
+  <p>Un ejemplo/anécdota básico de sintaxis (con jQuery) extraído de la vida real.</p>
+  
+  <p>Queremos hacer una tablita con pijama usando jQuery, para que quede más o menos así</p>
+  
+  <p><img src="images/tabla_pijama.png" width="499" height="175" alt="Tabla Pijama"/></p>
+  
+  <p>Para ello lo lo que había era una función como esta:</p>
+  
+  <pre><code>
+$("table tbody tr").each(function(i){
+  if(i%2 == 0) {
+    $(this).css("background", "#F4F7FB");
+  }
+});
+  </code></pre>
+  
+  <p>Bueno... cumple su función. Tenemos que asumir que siempre hay más de una manera de hacer las cosas. Conocer un poquito más a fondo (no mucho) la API de jquery nos permitiría hacer esto un poquito más compacta.</p>
+  
+  <pre><code>
+$("table tbody tr:even").addClass("even");
+  </code></pre>
+  
+  <p>Por una parte seleccionamos menos elementos sobre los que iterar, y por otra cambiamos el color de fondo añadiendo una clase y dejando la responsabilidad de los atributos de estilo a la CSS.</p>
   
   <p>
     <a href="003-frameworks.html" class="button">« anterior</a>

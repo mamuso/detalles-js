@@ -5,7 +5,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
-  <title>Conoce tus herramientas - javascript, los pequeños detalles</title>
+  <title>Elige bien tus nombres - javascript, los pequeños detalles</title>
   <link rel="stylesheet" href="stylesheets/presentacion.css" type="text/css" media="screen" charset="utf-8"/>
   <link rel="stylesheet" href="stylesheets/presentacion-handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" charset="utf-8"/>
   <!--[if lte IE 6]>
@@ -22,40 +22,29 @@
     <div class="wrapper">
       
 
-<img src="images/0006.png" class="sreenshot" alt="Conoce tus herramientas"/>
+<img src="images/0008.png" class="sreenshot" alt="Elegir nombres"/>
 
 <div class="article">
-  <h1>Conoce tus herramientas</h1>
+  <h1>Elige bien tus nombres</h1>
   
-  <p>Es importante conocer el lenguaje con el que trabajas, y si se trata de un framework conocer todas las posibilidades que nos ofrece para intentar exprimirlo al máximo.</p>
+  <p>Otra cosita obvia, pero que está muy bien tenerla en cuenta.</p>
   
-  <p>Un ejemplo/anécdota básico de sintaxis (con jQuery) extraído de la vida real.</p>
+  <p>A la hora de elegir nombres para tus variables y funciones hay que tratar de que sean cortitos y representativos.</p>
   
-  <p>Queremos hacer una tablita con pijama usando jQuery, para que quede más o menos así</p>
+  <p>Algunos ejemplos de nombres no demasiado afortunados</p>
   
-  <p><img src="images/tabla_pijama.png" width="499" height="175" alt="Tabla Pijama"/></p>
+  <ul>
+    <li>x1</li>
+    <li>querty</li>
+    <li>countElementsEveryTimeYouClick</li>
+    <li><strong>countTwenty</strong></li>
+  </ul>
   
-  <p>Para ello lo lo que había era una función como esta:</p>
-  
-  <pre><code>
-$("table tbody tr").each(function(i){
-  if(i%2 == 0) {
-    $(this).css("background", "#F4F7FB");
-  }
-});
-  </code></pre>
-  
-  <p>Bueno... cumple su función. Tenemos que asumir que siempre hay más de una manera de hacer las cosas. Conocer un poquito más a fondo (no mucho) la API de jquery nos permitiría hacer esto un poquito más compacta.</p>
-  
-  <pre><code>
-$("table tbody tr:even").addClass("even");
-  </code></pre>
-  
-  <p>Por una parte seleccionamos menos elementos sobre los que iterar, y por otra cambiamos el color de fondo añadiendo una clase y dejando la responsabilidad de los atributos de estilo a la CSS.</p>
+  <p>Fijándonos en este último caso. Deberíamos de evitar que el nombre de una función describiese un valor. Si mañana en lugar de contar hasta 20 tuviésemos de contar hasta 30 deberíamos de cambiar el nombre de la función y sus llamadas, hacer una nueva o bien dejarla como está y comentar (nooooooo!!!)</p>
   
   <p>
-    <a href="003-frameworks.html" class="button">« anterior</a>
-    <a href="005-comenta.html" class="button">siguiente »</a>
+    <a href="006-elegir-nombres.html" class="button">« anterior</a>
+    <a href="008-bucles.html" class="button">siguiente »</a>
   </p>
 
 </div>
